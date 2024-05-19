@@ -1,0 +1,15 @@
+.title {
+    font-size: 50px;
+    color: #FFF;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+}
+
+.title p:first-child {
+    font-size: 90px;
+}
+
+.title p:first-child span {
+    color: #FD5742;
+}
