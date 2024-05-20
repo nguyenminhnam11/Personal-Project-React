@@ -6,7 +6,10 @@ function Form(props) {
 
   const [todoValue, setTodoValue] = useState("");
   const [listTodo, setListTodo] = useState(storageTodo || []);
-  const [ errorMessage, setErrorMessage] = useState(false)
+  const [errorMessage, setErrorMessage] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [currentTodo, setCurrentTodo] = useState(null);
+  const [editValue, setEditValue] = useState("");
 
   const handleAddTodo = () => {
     if (todoValue) {
@@ -14,9 +17,9 @@ function Form(props) {
       setListTodo(newTodo);
       setTodoValue("");
       localStorage.setItem("TodoList", JSON.stringify(newTodo));
-      setErrorMessage(false)
+      setErrorMessage(false);
     } else {
-      setErrorMessage(true)
+      setErrorMessage(true);
     }
   };
 
@@ -27,6 +30,32 @@ function Form(props) {
       deletedTodo.splice(todoDelete, 1);
       setListTodo(deletedTodo);
       localStorage.setItem("TodoList", JSON.stringify(deletedTodo));
+    }
+  };
+
+  const handleEditTodo = (todoEdit) => {
+    setIsEditing(true);
+    setCurrentTodo(todoEdit);
+    setEditValue(listTodo[todoEdit]);
+  };
+
+  const handleCancelEdit = () => {
+    setIsEditing(false);
+    setCurrentTodo(null);
+  };
+
+  const handleSaveEdit = () => {
+    if (editValue) {
+      const updatedTodos = listTodo.map((todo, index) =>
+        index === currentTodo ? editValue : todo
+      );
+      setListTodo(updatedTodos);
+      localStorage.setItem("TodoList", JSON.stringify(updatedTodos));
+      setIsEditing(false);
+      setCurrentTodo(null);
+      setEditValue("");
+    } else {
+      alert("This field may not be empty");
     }
   };
 
@@ -48,8 +77,42 @@ function Form(props) {
           <ul>
             {listTodo.map((todo, index) => (
               <li key={index}>
-                {todo}
-                <button onClick={() => handleDeleteTodo(index)}>X</button>
+                {isEditing && currentTodo === index ? (
+                  <div className="todo-item">
+                    <input
+                      type="text"
+                      className="edit-field"
+                      value={editValue}
+                      onChange={(e) => setEditValue(e.target.value)}
+                    />
+                    <div className="btn-actions">
+                      <button className="cancel-btn" onClick={handleCancelEdit}>
+                        X
+                      </button>
+                      <button className="save-btn" onClick={handleSaveEdit}>
+                        &#10004;
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="todo-item">
+                    {todo}
+                    <div className="btn-actions">
+                      <button
+                        className="edit-btn"
+                        onClick={() => handleEditTodo(index)}
+                      >
+                        &#9998;
+                      </button>
+                      <button
+                        className="delete-btn"
+                        onClick={() => handleDeleteTodo(index)}
+                      >
+                        X
+                      </button>
+                    </div>
+                  </div>
+                )}
               </li>
             ))}
           </ul>

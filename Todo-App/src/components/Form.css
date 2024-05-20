@@ -65,16 +65,57 @@
     list-style: none;
 }
 
-.list ul li {
+/* .list ul li {
+    width: 100%;
     border-bottom: 1px solid gray;
     padding: 10px 0;
     margin-bottom: 5px;
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+} */
+
+.todo-item {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    padding: 10px 0;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.list ul li button {
-    position: absolute;
-    right: 0;
+.edit-field {
+    padding: 3px 8px;
+    border: none;
+    border-radius: 15px;
+    background: #EDEEF0;
+    outline: none;
+    font-size: 16px;
+}
+
+.btn-actions {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.edit-btn {
+    padding: 3px 6px;
+    background: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    transition: .2s;
+    color: #08ABEA;
+}
+
+.edit-btn:hover {
+    color: #FFF;
+    background: #08ABEA;
+}
+
+.delete-btn {
     padding: 3px 6px;
     background: transparent;
     border-radius: 50%;
@@ -84,9 +125,39 @@
     color: red;
 }
 
-.list ul li button:hover {
+.delete-btn:hover {
     color: #FFF;
     background: red;
+}
+
+.cancel-btn {
+    padding: 3px 6px;
+    background: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    transition: .2s;
+    color: red;
+}
+
+.cancel-btn:hover {
+    color: #FFF;
+    background: red;
+}
+
+.save-btn {
+    padding: 3px 6px;
+    background: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    transition: .2s;
+    color: #63BB34;
+}
+
+.save-btn:hover {
+    color: #FFF;
+    background: #63BB34;
 }
 
 .message {
