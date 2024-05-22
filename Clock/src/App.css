@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 100vh;
+  background-image: url(./assets/images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.wrapper {
+  width: 430px;
+  height: 932px;
+  background-image: url(./assets/images/hinh-nen-iphone15-pro-15-promax-3-600x1200.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: scale(0.7);
+  outline: 10px solid #000;
+  border-radius: 55px;
+  position: relative;
+}
+
+.dynamic-island {
+  width: 126px;
+  height: 34px;
+  background-color: #000;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 20px;
+}
+
+.home-bar {
+  width: 160px;
+  height: 6px;
+  background-color: #fff;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 20px;
+}
+
+@media (max-width: 431px) {
+  .wrapper {
+    transform: scale(0.85);
+  }
+}
+
+@media (max-width: 376px) {
+  .wrapper {
+    transform: scale(0.65);
+  }
+}

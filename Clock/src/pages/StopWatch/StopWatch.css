@@ -1,0 +1,54 @@
+.stop-watch {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.time-sw {
+    margin-top: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.time-sw span,.symbol-sw {
+    font-size: 6rem;
+    font-weight: 500;
+    color: #FFF;
+    text-shadow: 0 0 10px #FFF;
+}
+
+.time-sw span {
+    text-align: center;
+    width: 105px;
+}
+
+.btn-actions-sw {
+    margin-top: 20%;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+.btn-actions-sw button {
+    text-align: center;
+    width: 120px;
+    height: 120px;
+    font-size: 30px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .2s;
+    font-weight: 600;
+}
+
+.btn-stop {
+    background-color: rgba(116, 15, 15, 0.341);
+    color: rgb(255, 0, 0);
+}
+
+.btn-start {
+    background-color: rgba(29, 255, 70, 0.338);
+    color: #57e936;
+}

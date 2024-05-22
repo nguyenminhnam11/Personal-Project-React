@@ -1,0 +1,15 @@
+.battery {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    height: 34px;
+    color: #FFF;
+}
+
+.battery span {
+    margin-left: 2px;
+    font-weight: 600;
+}
